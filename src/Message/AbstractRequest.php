@@ -77,6 +77,45 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('udf', $value);
     }
 
+    public function getPlan()
+    {
+        return $this->getParameter('plan');
+    }
+
+    public function getPlanValues()
+    {
+        if ($plan = $this->getPlan()) {
+            return array_values($plan);
+        }
+
+        return false;
+    }
+
+    public function setPlan($value)
+    {
+        return $this->setParameter('plan', $value);
+    }
+
+    public function getCustomerId()
+    {
+        return $this->getParameter('customerId');
+    }
+
+    public function setCustomerId($value)
+    {
+        return $this->setParameter('customerId', $value);
+    }
+
+    public function getCardId()
+    {
+        return $this->getParameter('cardId');
+    }
+
+    public function setCardId($value)
+    {
+        return $this->setParameter('cardId', $value);
+    }
+
     public function sendRequest($data)
     {
         // don't throw exceptions for 4xx errors
