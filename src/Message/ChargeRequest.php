@@ -38,7 +38,6 @@ class ChargeRequest extends AbstractRequest
             } else {
                 $data['paymentPlans'][]['name'] = $plan['name'];
                 $data['paymentPlans'][0]['planTrackId'] = isset($plan['planTrackId']) ? $plan['planTrackId'] : null;
-                $data['paymentPlans'][0]['currency'] = $plan['currency'];
                 $data['paymentPlans'][0]['value'] = $plan['value'];
                 $data['paymentPlans'][0]['cycle'] = $plan['cycle'];
                 $data['paymentPlans'][0]['recurringCount'] = $plan['recurringCount'];
