@@ -5,7 +5,7 @@
 
 namespace Omnipay\CheckoutCom\Message;
 
-use Omnipay\Common\Message\ResponseInterface;
+use Omnipay\Common\Message\NotificationInterface;
 
 /**
  * CheckoutCom Response
@@ -14,8 +14,39 @@ use Omnipay\Common\Message\ResponseInterface;
  *
  * @see \Omnipay\CheckoutCom\Gateway
  */
-class WebhookResponse extends AbstractResponse implements ResponseInterface
+class WebhookResponse implements NotificationInterface
 {
+    /**
+     * @var array
+     */
+    protected $data;
+
+    public function __construct(array $data)
+    {
+        $this->data = $data;
+    }
+
+    public function getTransactionStatus()
+    {
+        switch ($this->data['eventType']) {
+            case 'charge.succeeded':
+            case 'charge.captured':
+            case 'charge.refunded':
+            case 'charge.voided':
+                return self::STATUS_COMPLETED;
+            case 'charge.failed':
+            case 'charge.captured.failed':
+            case 'charge.refunded.failed':
+            case 'charge.voided.failed':
+                return self::STATUS_FAILED;
+        }
+    }
+
+    public function getData()
+    {
+        return $this->data;
+    }
+
     /**
      * Get a token, for createCard requests.
      *
