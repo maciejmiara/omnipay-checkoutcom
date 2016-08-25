@@ -106,6 +106,15 @@ class WebhookResponse implements NotificationInterface
         return null;
     }
 
+    public function getStatus()
+    {
+        if (isset($this->data['message']['status'])) {
+            return $this->data['message']['status'];
+        }
+
+        return null;
+    }
+
     public function getCardId()
     {
         if (isset($this->data['message']['card']['id'])) {
