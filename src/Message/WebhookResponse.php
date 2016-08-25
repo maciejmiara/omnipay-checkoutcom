@@ -132,4 +132,13 @@ class WebhookResponse implements NotificationInterface
 
         return null;
     }
+
+    public function getCustomerPlanNextDate()
+    {
+        if (isset($this->data['message']['customerPaymentPlans'][0]['nextRecurringDate'])) {
+            return $this->data['message']['card']['nextRecurringDate'];
+        }
+
+        return null;
+    }
 }
