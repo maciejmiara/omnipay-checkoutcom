@@ -54,4 +54,13 @@ class AbstractResponse extends \Omnipay\Common\Message\AbstractResponse
     {
         return !isset($this->data['errorCode']);
     }
+
+    public function getStatus()
+    {
+        if (isset($this->data['status'])) {
+            return $this->data['status'];
+        }
+
+        return null;
+    }
 }
