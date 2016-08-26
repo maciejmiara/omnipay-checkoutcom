@@ -16,6 +16,24 @@ use Omnipay\Common\Message\ResponseInterface;
  */
 class RefundResponse extends AbstractResponse implements ResponseInterface
 {
+    public function getDescription()
+    {
+        if (isset($this->data['message']['description'])) {
+            return $this->data['message']['description'];
+        }
+
+        return null;
+    }
+
+    public function getStatus()
+    {
+        if (isset($this->data['message']['status'])) {
+            return $this->data['message']['status'];
+        }
+
+        return null;
+    }
+
     public function getCardId()
     {
         if (isset($this->data['card']['id'])) {

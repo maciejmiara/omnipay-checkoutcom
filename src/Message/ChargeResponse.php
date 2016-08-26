@@ -16,31 +16,22 @@ use Omnipay\Common\Message\ResponseInterface;
  */
 class ChargeResponse extends AbstractResponse implements ResponseInterface
 {
-    public function isSuccessful()
+    public function getDescription()
     {
-        return false;
-    }
-
-    public function isRedirect()
-    {
-        return !isset($this->data['errorCode']);
-    }
-
-    public function getRedirectMethod()
-    {
-        return 'GET';
-    }
-
-    public function getRedirectUrl()
-    {
-        if ($this->isRedirect()) {
-            return 'placeholder';
+        if (isset($this->data['message']['description'])) {
+            return $this->data['message']['description'];
         }
+
+        return null;
     }
 
-    public function getRedirectData()
+    public function getStatus()
     {
-        return $this->getData();
+        if (isset($this->data['message']['status'])) {
+            return $this->data['message']['status'];
+        }
+
+        return null;
     }
 
     public function getCardId()
