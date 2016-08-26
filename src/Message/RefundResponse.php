@@ -16,33 +16,6 @@ use Omnipay\Common\Message\ResponseInterface;
  */
 class RefundResponse extends AbstractResponse implements ResponseInterface
 {
-    public function isSuccessful()
-    {
-        return false;
-    }
-
-    public function isRedirect()
-    {
-        return !isset($this->data['errorCode']);
-    }
-
-    public function getRedirectMethod()
-    {
-        return 'GET';
-    }
-
-    public function getRedirectUrl()
-    {
-        if ($this->isRedirect()) {
-            return 'placeholder';
-        }
-    }
-
-    public function getRedirectData()
-    {
-        return $this->getData();
-    }
-
     public function getCardId()
     {
         if (isset($this->data['card']['id'])) {
