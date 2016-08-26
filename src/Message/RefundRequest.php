@@ -13,7 +13,7 @@ class RefundRequest extends AbstractRequest
     {
         $httpResponse = $this->sendRequest($data);
 
-        return $this->response = new AbstractResponse($this, $httpResponse->json());
+        return $this->response = new RefundResponse($this, $httpResponse->json());
     }
 
     public function getEndpoint()
