@@ -18,8 +18,8 @@ class ChargeResponse extends AbstractResponse implements ResponseInterface
 {
     public function getDescription()
     {
-        if (isset($this->data['message']['description'])) {
-            return $this->data['message']['description'];
+        if (isset($this->data['description'])) {
+            return $this->data['description'];
         }
 
         return null;
@@ -27,8 +27,8 @@ class ChargeResponse extends AbstractResponse implements ResponseInterface
 
     public function getStatus()
     {
-        if (isset($this->data['message']['status'])) {
-            return $this->data['message']['status'];
+        if (isset($this->data['status'])) {
+            return $this->data['status'];
         }
 
         return null;
