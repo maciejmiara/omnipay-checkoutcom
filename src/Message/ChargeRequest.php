@@ -33,10 +33,11 @@ class ChargeRequest extends AbstractRequest
         }
 
         if ($plan = $this->getPlanValues()) {
+            $data['paymentPlans'] = [];
             if (isset($plan['planId'])) {
-                $data['paymentPlans'][]['planId'] = $plan['planId'];
+                $data['paymentPlans'][0]['planId'] = $plan['planId'];
             } else {
-                $data['paymentPlans'][]['name'] = $plan['name'];
+                $data['paymentPlans'][0]['name'] = $plan['name'];
                 $data['paymentPlans'][0]['planTrackId'] = isset($plan['planTrackId']) ? $plan['planTrackId'] : null;
                 $data['paymentPlans'][0]['value'] = $plan['value'];
                 $data['paymentPlans'][0]['cycle'] = $plan['cycle'];
