@@ -23,6 +23,7 @@ class ChargeRequest extends AbstractRequest
         $data['metadata'] = $this->getMetadata();
         $data['cardId'] = $this->getCardId();
         $data['customerId'] = $this->getCustomerId();
+        $data['autoCapTime'] = $this->getAutoCapTime();
 
         if ($udf = $this->getUdfValues()) {
             $data['udf1'] = $udf[0];

@@ -116,6 +116,16 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('cardId', $value);
     }
 
+    public function getAutoCapTime()
+    {
+        return $this->getParameter('autoCapTime');
+    }
+
+    public function setAutoCapTime($value)
+    {
+        $this->setParameter('autoCapTime', $value);
+    }
+
     public function sendRequest($data)
     {
         // don't throw exceptions for 4xx errors
