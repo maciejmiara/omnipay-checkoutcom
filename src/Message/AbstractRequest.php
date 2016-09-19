@@ -85,7 +85,8 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     public function getPlanValues()
     {
         if ($plan = $this->getPlan()) {
-            return array_values($plan);
+            $plan['value'] = $plan['amount'];
+            return $plan;
         }
 
         return false;
@@ -114,6 +115,16 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     public function setCardId($value)
     {
         return $this->setParameter('cardId', $value);
+    }
+
+    public function getAutoCapture()
+    {
+        return $this->getParameter('autoCapture');
+    }
+
+    public function setAutoCapture($value)
+    {
+        $this->setParameter('autoCapture', $value);
     }
 
     public function getAutoCapTime()

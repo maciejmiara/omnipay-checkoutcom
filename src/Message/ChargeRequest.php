@@ -23,6 +23,7 @@ class ChargeRequest extends AbstractRequest
         $data['metadata'] = $this->getMetadata();
         $data['cardId'] = $this->getCardId();
         $data['customerId'] = $this->getCustomerId();
+        $data['autoCapture'] = $this->getAutoCapture();
         $data['autoCapTime'] = $this->getAutoCapTime();
 
         if ($udf = $this->getUdfValues()) {
@@ -43,6 +44,7 @@ class ChargeRequest extends AbstractRequest
                 $data['paymentPlans'][0]['value'] = $plan['value'];
                 $data['paymentPlans'][0]['cycle'] = $plan['cycle'];
                 $data['paymentPlans'][0]['recurringCount'] = $plan['recurringCount'];
+                $data['paymentPlans'][0]['autoCapTime'] = $this->getAutoCapTime();
             }
         }
 
