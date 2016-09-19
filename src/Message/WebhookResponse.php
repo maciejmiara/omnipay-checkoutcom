@@ -136,7 +136,7 @@ class WebhookResponse implements NotificationInterface
     public function getPlanId()
     {
         if (isset($this->data['message']['customerPaymentPlans'][0]['planId'])) {
-            return $this->data['message']['card']['customerId'];
+            return $this->data['message']['customerPaymentPlans'][0]['customerId'];
         }
 
         return null;
@@ -145,7 +145,7 @@ class WebhookResponse implements NotificationInterface
     public function getCustomerPlanId()
     {
         if (isset($this->data['message']['customerPaymentPlans'][0]['customerPlanId'])) {
-            return $this->data['message']['card']['customerPlanId'];
+            return $this->data['message']['customerPaymentPlans'][0]['customerPlanId'];
         }
 
         return null;
@@ -154,7 +154,16 @@ class WebhookResponse implements NotificationInterface
     public function getCustomerPlanNextDate()
     {
         if (isset($this->data['message']['customerPaymentPlans'][0]['nextRecurringDate'])) {
-            return $this->data['message']['card']['nextRecurringDate'];
+            return $this->data['message']['customerPaymentPlans'][0]['nextRecurringDate'];
+        }
+
+        return null;
+    }
+
+    public function getUdf1()
+    {
+        if (isset($this->data['message']['udf1'])) {
+            return $this->data['message']['udf1'];
         }
 
         return null;
