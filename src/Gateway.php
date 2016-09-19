@@ -67,4 +67,9 @@ class Gateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\CheckoutCom\Message\RefundRequest', $parameters);
     }
+
+    public function cancelCustomerPlan(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\CheckoutCom\Message\CancelCustomerPlanRequest', $parameters);
+    }
 }
