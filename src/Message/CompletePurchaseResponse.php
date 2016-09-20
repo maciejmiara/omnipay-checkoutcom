@@ -60,4 +60,13 @@ class CompletePurchaseResponse extends AbstractResponse implements ResponseInter
 
         return null;
     }
+
+    public function getUdf1()
+    {
+        if (isset($this->data['udf1'])) {
+            return $this->data['udf1'];
+        }
+
+        return null;
+    }
 }
