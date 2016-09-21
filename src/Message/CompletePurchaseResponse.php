@@ -63,8 +63,8 @@ class CompletePurchaseResponse extends AbstractResponse implements ResponseInter
 
     public function getCustomerPlanNextDate()
     {
-        if (isset($this->data['message']['customerPaymentPlans'][0]['nextRecurringDate'])) {
-            return $this->data['message']['customerPaymentPlans'][0]['nextRecurringDate'];
+        if (isset($this->data['customerPaymentPlans'][0]['nextRecurringDate'])) {
+            return $this->data['customerPaymentPlans'][0]['nextRecurringDate'];
         }
 
         return null;
