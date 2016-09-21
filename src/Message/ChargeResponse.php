@@ -69,4 +69,13 @@ class ChargeResponse extends AbstractResponse implements ResponseInterface
 
         return null;
     }
+
+    public function getCustomerPlanNextDate()
+    {
+        if (isset($this->data['customerPaymentPlans'][0]['nextRecurringDate'])) {
+            return $this->data['customerPaymentPlans'][0]['nextRecurringDate'];
+        }
+
+        return null;
+    }
 }
