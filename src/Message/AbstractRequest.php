@@ -85,7 +85,10 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     public function getPlanValues()
     {
         if ($plan = $this->getPlan()) {
-            $plan['value'] = $plan['amount'];
+            if (isset($plan['amount'])) {
+                $plan['value'] = $plan['amount'];
+            }
+
             return $plan;
         }
 

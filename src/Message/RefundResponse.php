@@ -55,7 +55,7 @@ class RefundResponse extends AbstractResponse implements ResponseInterface
     public function getPlanId()
     {
         if (isset($this->data['customerPaymentPlans'][0]['planId'])) {
-            return $this->data['card']['customerId'];
+            return $this->data['customerPaymentPlans'][0]['planId'];
         }
 
         return null;
@@ -64,7 +64,7 @@ class RefundResponse extends AbstractResponse implements ResponseInterface
     public function getCustomerPlanId()
     {
         if (isset($this->data['customerPaymentPlans'][0]['customerPlanId'])) {
-            return $this->data['card']['customerPlanId'];
+            return $this->data['customerPaymentPlans'][0]['customerPlanId'];
         }
 
         return null;
