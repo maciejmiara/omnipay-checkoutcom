@@ -136,7 +136,7 @@ class WebhookResponse implements NotificationInterface
     public function getPlanId()
     {
         if (isset($this->data['message']['customerPaymentPlans'][0]['planId'])) {
-            return $this->data['message']['customerPaymentPlans'][0]['customerId'];
+            return $this->data['message']['customerPaymentPlans'][0]['planId'];
         }
 
         return null;
